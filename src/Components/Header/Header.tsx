@@ -1,6 +1,6 @@
 import styles from './Header.module.sass';
 import Logo from '../UI/Logo/Logo';
-import Container from '../Container/Container';
+import Container from '../UI/Container/Container';
 
 const Header = () => {
 	return (

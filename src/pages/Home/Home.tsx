@@ -1,6 +1,6 @@
 import DishesMenu from '@/Components/DishesMenu/DishesMenu';
 import styles from './Home.module.sass';
-import Container from '@/Components/Container/Container';
+import Container from '@/Components/UI/Container/Container';
 import Cart from '@/Components/Cart/Cart';
 
 const Home = () => {
