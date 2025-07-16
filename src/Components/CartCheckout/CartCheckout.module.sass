@@ -1,5 +1,5 @@
 @use '../../styles/variables' as *
-@use 'sass:color'
+@use '../../styles/mixins' as *
 	
 .cartCheckout
 	display: flex
@@ -29,17 +29,8 @@
 	font-size: 16px
 	letter-spacing: .4px
 .orderBtn
-	width: max-content
+	@include btn
 	margin-left: auto
-	height: 34px
-	width: 120px
-	font-weight: 700
-	background: linear-gradient(135deg, $color-blue 20%, $color-purple)
+	padding: 8px 16px
 	border: none
-	color: $color-white
 	border-radius: 16px
-	font-size: 14px
-	transition: .2s ease
-	&:hover, &:focus-visible
-		outline: none
-		font-size: 15px

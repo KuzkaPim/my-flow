@@ -1,0 +1,12 @@
+@use './variables' as *
+@use 'sass:color'
+
+@mixin btn($fw: 400)
+	background: $color-blue
+	color: $color-white
+	font-size: 14px
+	transition: all .2s ease
+	font-weight: $fw
+	&:hover, &:focus-visible
+		outline: none
+		background: color.adjust($color-blue, $lightness: -10%)

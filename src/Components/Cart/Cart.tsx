@@ -11,7 +11,7 @@ const Cart = () => {
 	return (
 		<div className={styles.cart}>
 			<h2 className={styles.title}>Cart</h2>
-			{cart.length ? (
+			{cart.length !== 0 ? (
 				<ul className={styles.cartList}>
 					{cart.map((item) => (
 						<CartItem key={item.dish.name} cartDish={item} />

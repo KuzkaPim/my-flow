@@ -1,4 +1,5 @@
 @use '../../../styles/variables' as *
+@use '../../../styles/mixins' as *
 	
 .modal
 	background: $color-white
@@ -17,10 +18,10 @@
 	height: 20px
 	margin-left: 10px
 .closeBtn
-	width: 30px
-	height: 30px
+	@include btn
+	width: 32px
+	height: 32px
 	border: none
-	background: linear-gradient(135deg, $color-blue 20%, $color-purple)
 	border-radius: 50%
 	position: relative
 	margin-left: auto
@@ -36,12 +37,6 @@
 		transform: translate(-50%, -50%) rotate(45deg)
 	&::after
 		transform: translate(-50%, -50%) rotate(-45deg)
-	&:hover
-		outline: none
-		&::after
-			transform: translate(-50%, -50%) translateX(-1px) rotate(-45deg)
-		&::before
-			transform: translate(-50%, -50%) translateX(1px) rotate(45deg)
 .form
 	margin-top: 30px
 	display: flex
@@ -84,21 +79,12 @@
 	border-radius: 8px
 	transition: .1s ease
 .submitBtn
+	@include btn
 	margin-top: 30px
-	width: max-content
 	margin-left: auto
-	height: 34px
-	width: 120px
-	font-weight: 700
-	background: linear-gradient(135deg, $color-blue 20%, $color-purple)
+	padding: 8px 16px
 	border: none
-	color: $color-white
 	border-radius: 16px
-	font-size: 14px
-	transition: .2s ease
-	&:hover, &:focus-visible
-		outline: none
-		font-size: 15px
 .error
 	margin-top: 30px
 	display: flex

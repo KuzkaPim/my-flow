@@ -1,4 +1,5 @@
 @use '../../styles/variables' as *
+@use '../../styles/mixins' as *
 	
 .dishesCard
 	color: $color-grey
@@ -31,17 +32,12 @@
 	letter-spacing: .4px
 	font-size: 16px
 .cartBtn
+	@include btn
 	height: 45px
 	margin-top: auto
 	border: none
-	background: transparent
 	padding: 10px
-	background: linear-gradient(135deg, $color-blue 20%, $color-purple)
 	border-radius: 12px
-	transition: .2s ease
-	&:hover, &:focus-visible
-		outline: none
-		padding: 8px
 .cartImg
 	width: 100%
 	height: 100%
