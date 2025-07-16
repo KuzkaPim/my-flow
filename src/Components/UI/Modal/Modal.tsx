@@ -97,31 +97,34 @@ const Modal = ({ totalPrice }: TProps) => {
 					<form onSubmit={handleSubmit} className={styles.form}>
 						<div className={styles.labelsWrapper}>
 							<label className={styles.label}>
-								<h3 className={styles.inputTitle}>Name</h3>
+								<span className={styles.inputTitle}>Name</span>
 								<input
 									onChange={(e) => setName(e.target.value)}
 									value={name}
 									className={styles.input}
+									placeholder='John Doe'
 									type='text'
 									required
 								/>
 							</label>
 							<label className={styles.label}>
-								<h3 className={styles.inputTitle}>Address</h3>
+								<span className={styles.inputTitle}>Address</span>
 								<input
 									onChange={(e) => setAddress(e.target.value)}
 									value={address}
 									className={styles.input}
+									placeholder='329 Main St'
 									type='text'
 									required
 								/>
 							</label>
 							<label className={styles.label}>
-								<h3 className={styles.inputTitle}>Phone</h3>
+								<span className={styles.inputTitle}>Phone</span>
 								<input
 									onChange={(e) => setPhone(e.target.value)}
 									value={phone}
 									className={styles.input}
+									placeholder='+7-(707)-710-77-23'
 									type='text'
 									required
 								/>

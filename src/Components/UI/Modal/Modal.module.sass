@@ -1,5 +1,6 @@
 @use '../../../styles/variables' as *
 @use '../../../styles/mixins' as *
+@use 'sass:color'
 	
 .modal
 	background: $color-white
@@ -48,36 +49,24 @@
 .label
 	display: flex
 	flex-direction: column
-	position: relative
-	&:hover .inputTitle,
-	&:has(.input:focus-visible) .inputTitle
-		background: $color-blue
-		color: $color-white
-	&:hover .input
-		outline: none
-		border-color: $color-blue
+	gap: 5px
 .input
 	height: 35px
 	border-radius: 8px
-	border: 1px solid $color-light
+	border: 2px solid $color-light
 	padding: 0 10px
 	font-size: 14px
 	color: $color-grey
 	background: $color-light
-	transition: .1s ease
-	&:focus-visible
+	transition: .2s ease
+	&::placeholder
+		color: color.adjust($color-grey, $lightness: 30%)
+	&:hover, &:focus-visible
 		outline: none
 		border-color: $color-blue
 .inputTitle
-	font-size: 13px
-	position: absolute
-	top: -8px
-	left: 10px
 	font-weight: 700
-	background: $color-white
-	padding: 0 7px
-	border-radius: 8px
-	transition: .1s ease
+	font-size: 14px
 .submitBtn
 	@include btn
 	margin-top: 30px
