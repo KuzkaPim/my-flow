@@ -1,0 +1,47 @@
+@use '../../styles/variables' as *
+	
+.dishesCard
+	color: $color-grey
+	display: grid
+	grid-template-columns: 120px 1fr 45px
+	grid-template-rows: minmax(120px, auto)
+	gap: 10px
+.img
+	width: 100%
+	height: 120px
+	object-fit: cover
+	border-radius: 16px
+.mainInfo
+	background: $color-light
+	border-radius: 16px
+	padding: 10px
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+.title
+	font-size: 24px
+	font-weight: 700
+	&::first-letter
+		text-transform: uppercase
+.price
+	font-size: 16px
+	font-weight: 700
+	margin-left: auto
+.descr
+	letter-spacing: .4px
+	font-size: 16px
+.cartBtn
+	height: 45px
+	margin-top: auto
+	border: none
+	background: transparent
+	padding: 10px
+	background: linear-gradient(135deg, $color-blue 20%, $color-purple)
+	border-radius: 12px
+	transition: .2s ease
+	&:hover, &:focus-visible
+		outline: none
+		padding: 8px
+.cartImg
+	width: 100%
+	height: 100%

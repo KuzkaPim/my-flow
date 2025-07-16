@@ -1,0 +1,19 @@
+@use '../../../styles/variables' as *
+
+.preloader
+	display: block
+	height: 100%
+	width: 100%
+	border: 2px solid $color-purple
+	border-right-color: transparent
+	border-left-color: transparent
+	border-bottom-color: $color-blue
+	border-radius: 50%
+	rotate: 0
+	animation: spin 1s linear infinite
+
+@keyframes spin
+	0%
+		rotate: 0
+	100%
+		rotate: 360deg

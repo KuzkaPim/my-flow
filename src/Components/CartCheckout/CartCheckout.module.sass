@@ -1,0 +1,45 @@
+@use '../../styles/variables' as *
+@use 'sass:color'
+	
+.cartCheckout
+	display: flex
+	flex-direction: column
+	gap: 20px
+	color: $color-grey
+.price
+	font-size: 24px
+	font-weight: 700
+.priceInfo
+	padding: 10px
+	background: $color-light
+	border-radius: 16px
+	display: flex
+	flex-direction: column
+	gap: 10px
+.priceInfoItem
+	display: flex
+	justify-content: space-between
+	font-size: 16px
+	&:last-child
+		font-size: 18px
+		font-weight: 700
+		.priceInfoTitle
+			font-size: 18px
+.priceInfoTitle
+	font-size: 16px
+	letter-spacing: .4px
+.orderBtn
+	width: max-content
+	margin-left: auto
+	height: 34px
+	width: 120px
+	font-weight: 700
+	background: linear-gradient(135deg, $color-blue 20%, $color-purple)
+	border: none
+	color: $color-white
+	border-radius: 16px
+	font-size: 14px
+	transition: .2s ease
+	&:hover, &:focus-visible
+		outline: none
+		font-size: 15px
