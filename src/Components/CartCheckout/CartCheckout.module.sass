@@ -1,14 +1,10 @@
 @use '../../styles/variables' as *
-@use '../../styles/mixins' as *
 	
 .cartCheckout
 	display: flex
 	flex-direction: column
 	gap: 20px
 	color: $color-grey
-.price
-	font-size: 24px
-	font-weight: 700
 .priceInfo
 	padding: 10px
 	background: $color-light
@@ -28,9 +24,3 @@
 .priceInfoTitle
 	font-size: 16px
 	letter-spacing: .4px
-.orderBtn
-	@include btn
-	margin-left: auto
-	padding: 8px 16px
-	border: none
-	border-radius: 16px
