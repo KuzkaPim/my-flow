@@ -3,17 +3,13 @@
 import styles from './Modal.module.sass';
 import Overlay from '../Overlay/Overlay';
 import { useAppDispatch } from '@/hooks/useAppDispatch';
-import {
-	postOrder,
-	toggleModal,
-	clearPostError,
-	clearIsPosted,
-} from '@/store/dishes/dishesSlice';
+import { toggleModalCart, clearError } from '@/store/cart/cartSlice';
 import { ChangeEvent, useState } from 'react';
 import { useAppSelector } from '@/hooks/useAppSelector';
 import { TCartPost } from '@/types/TCartPost';
 import { TOrder } from '@/types/TOrder';
 import Preloader from '../Preloader/Preloader';
+import { postOrder } from '@/store/cart/cartSlice';
 
 type TProps = {
 	totalPrice: number;
@@ -24,9 +20,7 @@ const Modal = ({ totalPrice }: TProps) => {
 	const [address, setAddress] = useState<string>('');
 	const [phone, setPhone] = useState<string>('');
 	const dispatch = useAppDispatch();
-	const { cart, isPosting, postError, isPosted } = useAppSelector(
-		(state) => state.dishes,
-	);
+	const { isLoading, error, cart } = useAppSelector((state) => state.cart);
 
 	const handleSubmit = (e: ChangeEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -56,44 +50,38 @@ const Modal = ({ totalPrice }: TProps) => {
 		};
 
 		dispatch(postOrder(orderDetails));
-		setName('');
-		setAddress('');
-		setPhone('');
 	};
 
 	const handleClose = () => {
-		dispatch(toggleModal());
-		dispatch(clearPostError());
-		dispatch(clearIsPosted());
+		dispatch(toggleModalCart());
 	};
 
 	return (
-		<Overlay onClick={() => dispatch(toggleModal())}>
+		<Overlay onClick={() => dispatch(toggleModalCart())}>
 			<div className={styles.modal}>
-				<div className={styles.header}>
-					<h2 className={styles.title}>Enter your details</h2>
-					{isPosting && (
+				<header className={styles.header}>
+					<h2 className={styles.title}>
+						{error ? 'Error' : 'Enter your details'}
+					</h2>
+					{isLoading && (
 						<div className={styles.preloader}>
 							<Preloader />
 						</div>
 					)}
-					{isPosted && <span className={styles.postDone}></span>}
 					<button onClick={handleClose} className={styles.closeBtn}></button>
-				</div>
-				{postError ? (
+				</header>
+				{error && (
 					<div className={styles.error}>
-						<div className={styles.errorMain}>
-							<h3 className={styles.errorTitle}>Error</h3>
-							<p className={styles.errorMessage}>{postError}</p>
-						</div>
+						<p className={styles.errorMessage}>{error}</p>
 						<button
-							onClick={() => dispatch(clearPostError())}
-							className={styles.errorBtn}
+							onClick={() => dispatch(clearError())}
+							className={styles.submitBtn}
 						>
 							Try again
 						</button>
 					</div>
-				) : (
+				)}
+				{!error && (
 					<form onSubmit={handleSubmit} className={styles.form}>
 						<div className={styles.labelsWrapper}>
 							<label className={styles.label}>
@@ -131,7 +119,7 @@ const Modal = ({ totalPrice }: TProps) => {
 							</label>
 						</div>
 						<button
-							disabled={isPosting}
+							disabled={isLoading}
 							className={styles.submitBtn}
 							type='submit'
 						>

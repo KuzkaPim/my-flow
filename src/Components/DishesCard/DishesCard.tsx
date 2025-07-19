@@ -3,7 +3,7 @@ import styles from './DishesCard.module.sass';
 import Image from 'next/image';
 import cartImg from './cart.svg';
 import { useAppDispatch } from '@/hooks/useAppDispatch';
-import { addToCart } from '@/store/dishes/dishesSlice';
+import { addToCart } from '@/store/cart/cartSlice';
 
 type TProps = {
 	dish: TDish;

@@ -1,11 +1,11 @@
 import { useAppSelector } from '@/hooks/useAppSelector';
 import styles from './CartCheckout.module.sass';
 import Modal from '../UI/Modal/Modal';
-import { toggleModal } from '@/store/dishes/dishesSlice';
+import { toggleModalCart } from '@/store/cart/cartSlice';
 import { useAppDispatch } from '@/hooks/useAppDispatch';
 
 const CartCheckout = () => {
-	const { cart, isShowModal } = useAppSelector((state) => state.dishes);
+	const { cart, isShowModalCart } = useAppSelector((state) => state.cart);
 	const totalCartPrice = cart.reduce((sum, item) => {
 		return sum + item.dish.price * item.count;
 	}, 0);
@@ -25,12 +25,12 @@ const CartCheckout = () => {
 				</span>
 			</div>
 			<button
-				onClick={() => dispatch(toggleModal())}
+				onClick={() => dispatch(toggleModalCart())}
 				className={styles.orderBtn}
 			>
 				Place order
 			</button>
-			{isShowModal && <Modal totalPrice={totalPrice} />}
+			{isShowModalCart && <Modal totalPrice={totalPrice} />}
 		</div>
 	);
 };

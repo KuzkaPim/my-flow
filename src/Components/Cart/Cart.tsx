@@ -6,20 +6,17 @@ import CartItem from '../CartItem/CartItem';
 import CartCheckout from '../CartCheckout/CartCheckout';
 
 const Cart = () => {
-	const { cart } = useAppSelector((state) => state.dishes);
+	const { cart } = useAppSelector((state) => state.cart);
 
 	return (
 		<div className={styles.cart}>
 			<h2 className={styles.title}>Cart</h2>
-			{cart.length !== 0 ? (
-				<ul className={styles.cartList}>
-					{cart.map((item) => (
-						<CartItem key={item.dish.name} cartDish={item} />
-					))}
-				</ul>
-			) : (
-				<p className={styles.emptyCart}>The cart is still empty</p>
-			)}
+			{cart.length === 0 && <p className={styles.empty}>Empty</p>}
+			<ul className={styles.cartList}>
+				{cart.map((item) => (
+					<CartItem key={item.dish.name} cartDish={item} />
+				))}
+			</ul>
 			{cart.length > 0 && <CartCheckout />}
 		</div>
 	);
