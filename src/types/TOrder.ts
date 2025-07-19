@@ -6,6 +6,5 @@ export type TOrder = {
 		address: string;
 		phone: string;
 	};
-	cart: TCartPost;
-	totalPrice: number;
+	order: TCartPost;
 };

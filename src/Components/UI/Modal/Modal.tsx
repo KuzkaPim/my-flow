@@ -11,11 +11,7 @@ import { TOrder } from '@/types/TOrder';
 import Preloader from '../Preloader/Preloader';
 import { postOrder } from '@/store/cart/cartSlice';
 
-type TProps = {
-	totalPrice: number;
-};
-
-const Modal = ({ totalPrice }: TProps) => {
+const Modal = () => {
 	const [name, setName] = useState<string>('');
 	const [address, setAddress] = useState<string>('');
 	const [phone, setPhone] = useState<string>('');
@@ -34,7 +30,6 @@ const Modal = ({ totalPrice }: TProps) => {
 			acc[item.dish.name] = {
 				count: item.count,
 				price: item.dish.price,
-				totalPrice: item.count * item.dish.price,
 			};
 			return acc;
 		}, {});
@@ -45,8 +40,7 @@ const Modal = ({ totalPrice }: TProps) => {
 				address,
 				phone,
 			},
-			cart: cartObj,
-			totalPrice,
+			order: cartObj,
 		};
 
 		dispatch(postOrder(orderDetails));

@@ -30,7 +30,7 @@ const CartCheckout = () => {
 			>
 				Place order
 			</button>
-			{isShowModalCart && <Modal totalPrice={totalPrice} />}
+			{isShowModalCart && <Modal />}
 		</div>
 	);
 };
